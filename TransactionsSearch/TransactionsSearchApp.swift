@@ -15,3 +15,4 @@ struct TransactionsSearchApp: App {
         }
     }
 }
+
