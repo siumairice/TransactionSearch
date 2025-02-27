@@ -85,7 +85,6 @@ struct FilterScreen: View {
     }
 }
 
-// Keep the existing helper components
 struct DatePickerField: View {
     var title: String
     @Binding var value: Date

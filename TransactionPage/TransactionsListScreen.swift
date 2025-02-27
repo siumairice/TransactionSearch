@@ -9,7 +9,6 @@ struct TransactionListScreen: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Search Bar
                 HStack {
                     HStack {
                         Image(systemName: "magnifyingglass")
@@ -34,7 +33,6 @@ struct TransactionListScreen: View {
                             }
                         }
                         
-                        // Toggle for Semantic Search
                         Button(action: { showSearchSettings = true }) {
                             Image(systemName: viewModel.isSemanticSearchEnabled ? "brain" : "textformat")
                                 .foregroundColor(.blue)
@@ -65,7 +63,6 @@ struct TransactionListScreen: View {
                     .background(Color(.systemGray5))
                     .cornerRadius(10)
 
-                    // Button for opening filter screen (if needed)
                     Button(action: { showFilterScreen = true }) {
                         HStack {
                             Image(systemName: "slider.horizontal.3")
@@ -80,7 +77,6 @@ struct TransactionListScreen: View {
                 .padding(.top, 8)
                 .background(Color(.systemGray6))
 
-                // Category Tags - Moved under Search Bar
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(["Shopping", "Food & Drink", "Income", "Health", "Subscription", "Bills", "Entertainment", "Transportation"], id: \.self) { category in
@@ -101,7 +97,7 @@ struct TransactionListScreen: View {
                             }
                         }
                     }
-                    .padding(.horizontal)
+                    .padding()
                 }
                 .padding(.bottom, 4)
                 .background(Color(.systemGray6))
@@ -118,7 +114,6 @@ struct TransactionListScreen: View {
                     .background(Color(.systemGray6))
                 }
 
-                // Transaction List
                 List {
                     ForEach(groupTransactionsByDate(), id: \.key) { date, transactions in
                         Section(header: DateHeader(title: date)) {
